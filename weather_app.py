@@ -23,9 +23,6 @@ from tkinter import font
 import tkinter as tk
 from PIL import Image, ImageTk
 
-
-#print(os.environ.get('MY_OWM_API_KEY'))  
-
 """
 units parameter is	optional.
   Values can be:	standard, metric, imperial. 
@@ -58,7 +55,9 @@ class App(tk.Frame):
 
     def resize(self, event):
         size = (event.width, event.height)
-        resized = self.original.resize(size,Image.ANTIALIAS)
+        #resized = self.original.resize(size,Image.ANTIALIAS)
+        resized = self.original.resize(size, Image.Resampling.LANCZOS)
+
         self.image = ImageTk.PhotoImage(resized)
         self.display.delete("IMG")
         self.display.create_image(0, 0, image=self.image, anchor='nw', tags="IMG")
@@ -85,13 +84,19 @@ def search_weather(city_val):
     try:
         #mcity = input("Enter your city:")
         mcity=city_val
+
         """
          Note : 'MY_OWM_API_KEY' is environment variable which holds API_KEY for openweathermap.org
                  you can change it as per your setting
 
         """
-        url= 'http://api.openweathermap.org/data/2.5/weather?appid='+os.environ.get('MY_OWM_API_KEY')
+
+        url = 'http://api.openweathermap.org/data/2.5/weather?appid='+ os.environ.get('MY_OWM_API_KEY')
+        #
+
+
         url = url+'&q=' + mcity +'&units=metric'
+
         if len(mcity.strip()) ==0:
             raise Empty_City
         else:
@@ -122,9 +127,6 @@ def search_weather(city_val):
     label.place(relwidth=1, relheight=1)
     label['text']=text
     
-
-
-
 ###############################
 
 app = App(root)
@@ -133,7 +135,6 @@ app = App(root)
 Defining Layout for application GUI
 
 """
-
 
 frame =tk.Frame(app, bg='#80c1ff' ,bd=5)
 frame.place(relx=0.5, rely=0.1, relwidth=0.75, relheight=0.1, anchor='n')
