@@ -106,12 +106,14 @@ def search_weather(city_val):
                 #print(res)
                 #print(data)
                 temp_d=data['main']
+                temp_c=temp_d['temp']
+                temp_f=(temp_c * 9 / 5) + 32
                 #curdt=datetime.fromtimestamp(data['dt']).strftime("%Y-%m-%d %I:%M:%S")
                 text  = 'Current weather for City :'  +mcity +'\n'
                 text += 'Location (Lon,Lat) : ('+ str(data['coord']['lon']) +' , '+ str(data['coord']['lat']) +')\n'
                 text += 'Country :' + data['sys']['country'] + ' Timezone : ' +  str( data['timezone']) +'\n'
-                text += 'Temperature : ' + str(temp_d['temp']) + ' in Metric Unit \n'
-                text += 'Feels like : '+ str(temp_d['feels_like'] ) +'\n'
+                text += f'Temperature : {temp_c} °C / {temp_f:.1f} °F\n'
+                text += 'Feels like : '+ str(temp_d['feels_like']) + ' °C\n'
                 text += 'Pressure : '+ str(temp_d['pressure'] ) +'\n'
                 text += 'Humidity : '+ str(temp_d['humidity'] ) +'\n'
                 text += 'Visibility : ' + str( data['visibility'] ) +'\n'

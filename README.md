@@ -1,40 +1,53 @@
-# weather_app
+# Weather App
 
+## Summary
 
-Purpose:
+Weather App is a desktop GUI application that retrieves current weather for a
+city from the OpenWeatherMap Current Weather API. Enter a city name (optionally
+with a country code, such as `Mumbai,IN`) and select **Find Weather** to view
+the location coordinates, country, timezone, temperature in Celsius and
+Fahrenheit, feels-like temperature in Celsius, pressure, humidity, visibility,
+and wind information.
+The window displays `weather.png` as its background and includes a button to
+exit the application.
 
-The purpose of this "TKinter" GUI application is to access API endpoint 
-to get weather data in formatted manner from "openweathermap.org" website
-based on City name provided.
+## Project Category
 
-The Information retrieved are displayed  by formatting in various fields.
+Python desktop application / graphical user interface (GUI), for looking up
+current city weather.
 
-For example,
-1 )
-City Name:  New Delhi
-City Location (Lon, Lat): (77.2311 , 28.6128)
-Country: IN    Timezone:  19800
-Temperature :  32.09 in Metric Unit
-Feels like:  34.05
-Pressure:  999
-Humidity:  48
-Visibility:  4500
-Wind Speed:  3.09    at Degree:  80
+## Tools Used
 
-2 )
-City Name:  Vadodara, IN
-City Location (Lon, Lat): (73.2 , 22.3)
-Country: IN    Timezone:  19800
-Temperature :  32.98 in Metric Unit
-Feels like:  35.97
-Pressure:  1004
-Humidity:  49
-Visibility:  4000
-Wind Speed:  5.14    at Degree:  220
+- **Python 3**
+- **Tkinter** for the desktop interface (included with most Python
+  installations)
+- **Requests** for HTTP calls to the weather API
+- **Pillow** for loading and resizing the background image
+- **OpenWeatherMap Current Weather API** as the weather data source
+- **`MY_OWM_API_KEY` environment variable** for the OpenWeatherMap API key
 
-Install instruction:
+## Setup and Run
 
-1) You need to register on :  openweathermap.org  to get your API_KEY.
-    API_KEY: is to be set in your environment variable and is accessed in program.
+1. Register with [OpenWeatherMap](https://openweathermap.org/) and obtain an
+   API key.
+2. Set the key in the `MY_OWM_API_KEY` environment variable. For example, in
+   PowerShell:
 
-2) The application is based on packages mentioned in file "requirements.txt"
+   ```powershell
+   $env:MY_OWM_API_KEY = "your_api_key"
+   ```
+
+3. Install the project dependencies:
+
+   ```bash
+   python -m pip install -r requirements.txt
+   ```
+
+4. Start the application from the project directory:
+
+   ```bash
+   python weather_app.py
+   ```
+
+Keep `weather.png` beside `weather_app.py` so the application can load its
+background image.
