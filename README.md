@@ -26,6 +26,17 @@ current city weather.
 - **OpenWeatherMap Current Weather API** as the weather data source
 - **`MY_OWM_API_KEY` environment variable** for the OpenWeatherMap API key
 
+## Project Structure
+
+```text
+Weather_App/
+├── weather_app.py     # Application entry point and GUI
+├── weather.png        # GUI background image
+├── requirements.txt   # Python package dependencies
+├── README.md          # Project overview and setup instructions
+└── LICENSE            # Project license
+```
+
 ## Setup and Run
 
 1. Register with [OpenWeatherMap](https://openweathermap.org/) and obtain an
